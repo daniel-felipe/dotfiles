@@ -50,8 +50,25 @@ lvim.builtin.which_key.mappings["C"] = {
 --------------------------------------------------------------------------------------------------|
 lvim.builtin.treesitter.ensure_installed = "all"
 
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 
---------------------------------------------------------------------------------------------------|
+parser_config.blade = {
+    install_info = {
+        url = "https://github.com/EmranMR/tree-sitter-blade",
+        files = { "src/parser.c" },
+        branch = "main",
+    },
+    filetype = "blade"
+}
+
+vim.filetype.add({
+    pattern = {
+        ['.*%.blade%.php'] = 'blade',
+    },
+})
+
+
+--------------------------------------------------------q
 -- [Formatters] ----------------------------------------------------------------------------------|
 --------------------------------------------------------------------------------------------------|
 local formatters = require "lvim.lsp.null-ls.formatters"
@@ -104,7 +121,6 @@ lvim.keys.normal_mode["<leader>g"] = {
     n = { "<cmd>Gitsigns next_hunk<CR>", "Next Hunk" },
 }
 
-
 --------------------------------------------------------------------------------------------------|
 -- [General Options] -----------------------------------------------------------------------------|
 --------------------------------------------------------------------------------------------------|
@@ -136,3 +152,4 @@ vim.opt.signcolumn = 'yes:2'
 vim.opt.undofile = true
 vim.opt.backup = true
 vim.opt.backupdir:remove('.')
+vim.opt.autowrite = true
