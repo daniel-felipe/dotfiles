@@ -9,7 +9,7 @@ handle_existing_file() {
 install_packages () {
     sudo apt-get update && apt-get install \
         python3 wget git ripgrep \
-        neovim exa zsh 
+        exa zsh 
 }
 
 install_docker () {
@@ -40,6 +40,11 @@ install_docker () {
 }
 
 install_astronvim () {
+    # Neovim
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+    sudo rm -rf /opt/nvim
+    sudo tar -C /opt -xzf nvim-linux64.tar.gz
+
     # Npm
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
     source ~/.bashrc
@@ -102,10 +107,11 @@ install_warpterminal () {
 
 install_tmux () {
     sudo apt install tmux
-    handle_existing_file "$HOME/.tmux.conf"
-    ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+    handle_existing_file ~/.tmux.conf
+    ln -s $DOTFILES/tmux/tmux.conf ~/.tmux.conf
 }
 
 install_zapzsh () {
+    chsh -s $(which zsh)
     zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 }

@@ -12,3 +12,7 @@ install_warpterminal
 install_tmux
 install_zapzsh
 
+# Install zsh dotfile.
+[ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.bkp"
+cp "$DOTFILES/zsh/zshrc" "$HOME/.zshrc"
+
