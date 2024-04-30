@@ -8,7 +8,7 @@ handle_existing_file() {
 
 install_packages () {
     sudo apt update && sudo apt install \
-        zsh python3 wget ripgrep exa
+        python3 wget ripgrep exa
 }
 
 install_docker () {
@@ -111,6 +111,7 @@ install_tmux () {
 }
 
 install_zapzsh () {
+    sudo apt install zsh -y
     chsh -s $(which zsh)
     zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 }
