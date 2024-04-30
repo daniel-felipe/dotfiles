@@ -8,7 +8,7 @@ handle_existing_file() {
 
 install_packages () {
     sudo apt update && sudo apt install \
-        python3 wget ripgrep exa
+        python3 wget ripgrep exa software-properties-common
 }
 
 install_docker () {
@@ -80,11 +80,9 @@ install_astronvim () {
 }
 
 install_php () {
-    sudo dpkg -l | grep php | tee packages.txt
-
+    # Php
     sudo add-apt-repository ppa:ondrej/php
-    sudo apt update
-
+    sudo apt-get update
     sudo apt install php8.3 php8.3-{cli,bz2,curl,mbstring,intl,fpm}
 
     # Composer
