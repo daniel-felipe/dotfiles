@@ -7,9 +7,8 @@ handle_existing_file() {
 }
 
 install_packages () {
-    sudo apt-get update && apt-get install \
-        python3 wget git ripgrep \
-        exa zsh 
+    sudo apt update && sudo apt install \
+        zsh python3 wget ripgrep exa
 }
 
 install_docker () {
