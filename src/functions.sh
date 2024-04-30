@@ -7,9 +7,9 @@ handle_existing_file() {
 }
 
 install_packages () {
-    sudo apt-get install \
+    sudo apt-get update && apt-get install \
         python3 wget git ripgrep \
-        neovim exa 
+        neovim exa zsh 
 }
 
 install_docker () {
@@ -40,6 +40,11 @@ install_docker () {
 }
 
 install_astronvim () {
+    # Npm
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    source ~/.bashrc
+    nvm install node
+
     # Rust
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     rustup update
@@ -90,8 +95,9 @@ install_php () {
 }
 
 install_warpterminal () {
-    wget https://app.warp.dev/download?package=deb
-    sudo apt install ./warp-terminal_*_amd64.deb
+    wget https://app.warp.dev/download?package=deb -O warp-terminal.deb
+    sudo apt install ./warp-terminal.deb
+    rm warp-terminal.deb
 }
 
 install_tmux () {
