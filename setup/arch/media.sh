@@ -1,6 +1,8 @@
 #!/bin/sh
 
 
+info "Installing multimedia packages"
+
 # ----------------------------------------------------
 # Install Multimedia Packages
 # ----------------------------------------------------

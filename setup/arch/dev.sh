@@ -1,6 +1,8 @@
 #!/bin/sh
 
 
+info "Installing developer packages"
+
 # ----------------------------------------------------
 # Install Development Packages
 # ----------------------------------------------------

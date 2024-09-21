@@ -1,6 +1,8 @@
 #!/bin/bash
 
 
+info "Installing system packages"
+
 # ----------------------------------------------------
 # Install System Packages
 # ----------------------------------------------------

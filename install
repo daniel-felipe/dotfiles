@@ -1,24 +1,64 @@
 #!/bin/bash
 
 
-DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+# ----------------------------------------------------
+# Set Colors
+# ----------------------------------------------------
+export red=$(tput setaf 1)
+export green=$(tput setaf 2)
+export yellow=$(tput setaf 3)
+export blue=$(tput setaf 4)
+export reset=$(tput sgr0)
+
+
+# ----------------------------------------------------
+# Functions
+# ----------------------------------------------------
+function error() {
+  echo "[${red}-${reset}] $1"
+}
+
+function success() {
+  echo "[${green}-${reset}] $1"
+}
+
+function info() {
+  echo "[${blue}+${reset}] $1"
+}
+
+function warning() {
+  echo "[${yellow}+${reset}] $1"
+}
 
 function arch() {
-  echo "[+] Initalizing arch setup"
+  info "Initalizing arch setup"
   source "setup/arch/setup.sh"
+}
+
+function ubuntu() {
+  # TODO: Ubuntu setup
+  warning "Not implemented yet."
 }
 
 function usage() {
     echo "Usage: $0 [-a] [-u]"
-    echo "  -a              Initialize Arch based linux setup"
-    echo "  -o output_file  Initialize Ubuntu based linux setup"
+    echo "  -a        Initialize Arch based linux setup"
+    echo "  -u        Initialize Ubuntu based linux setup"
     exit 1
 }
 
-while getopts ':au:' distro; do
+# ----------------------------------------------------
+# Entry Point
+# ----------------------------------------------------
+DOTFILES=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+[ "$#" -eq 0 ] && usage
+
+while getopts ':au' distro; do
   case "$distro" in
     a) arch ;;
-    ?) usage ;;
+    u) ubuntu ;;
+    *) usage ;;
   esac
 done
 

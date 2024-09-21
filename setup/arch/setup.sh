@@ -22,5 +22,7 @@ source "$DOTFILES/setup/arch/sys.sh"
 # ----------------------------------------------------
 # Remove Unused Packages
 # ----------------------------------------------------
-yay -Rsn $(yay -Qdtq)
+yay -Rsn $(yay -Qdtq) 2> /dev/null
+
+success "Done!"
 
