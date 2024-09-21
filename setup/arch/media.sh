@@ -4,7 +4,7 @@
 # ----------------------------------------------------
 # Install Multimedia Packages
 # ----------------------------------------------------
-yay --noconfirm --needed ffmpeg hlsdl thunderbird \
+yay -S --noconfirm --needed ffmpeg hlsdl thunderbird \
   onlyoffice vlc calibre freetube discord stremio kasts \
   xiphos qbittorrent veracrypt flameshot localsend bitwarden 
 

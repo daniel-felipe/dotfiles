@@ -4,7 +4,7 @@
 # ----------------------------------------------------
 # Install Development Packages
 # ----------------------------------------------------
-yay --noconfirm --needed base-devel git lazygit neovim \
+yay -S --noconfirm --needed base-devel git lazygit neovim \
   python python-pip python-setuptools python-pipx vscodium \
   lazydocker php php-sqlite composer tableplus
 

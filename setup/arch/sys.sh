@@ -4,7 +4,7 @@
 # ----------------------------------------------------
 # Install System Packages
 # ----------------------------------------------------
-yay --noconfirm --needed curl fzf unzip tmux zsh \
+yay -S --noconfirm --needed curl fzf unzip tmux zsh \
   streamlink protonvpn-cli-community clamav btop \
   appimagelauncher metadata-cleaner tor torbrowser-launcher \
   easyeffects syncthing
