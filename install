@@ -8,7 +8,7 @@ function arch() {
   source "setup/arch/setup.sh"
 }
 
-usage() {
+function usage() {
     echo "Usage: $0 [-a] [-u]"
     echo "  -a              Initialize Arch based linux setup"
     echo "  -o output_file  Initialize Ubuntu based linux setup"
