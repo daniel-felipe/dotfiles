@@ -6,7 +6,7 @@
 # ----------------------------------------------------
 yay --noconfirm --needed ffmpeg hlsdl thunderbird \
   onlyoffice vlc calibre freetube discord stremio kasts \
-  xiphos qbittorrent veracrypt flameshot localsend bitwarden \
+  xiphos qbittorrent veracrypt flameshot localsend bitwarden 
 
 
 # ----------------------------------------------------
