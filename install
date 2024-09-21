@@ -1,18 +1,24 @@
 #!/bin/bash
 
+
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
-source "$DOTFILES/src/functions.sh"
+function arch() {
+  echo "[+] Initalizing arch setup"
+  source "setup/arch/setup.sh"
+}
 
-install_packages
-install_docker
-install_astronvim
-install_php
-install_warpterminal
-install_tmux
-install_zapzsh
+usage() {
+    echo "Usage: $0 [-a] [-u]"
+    echo "  -a              Initialize Arch based linux setup"
+    echo "  -o output_file  Initialize Ubuntu based linux setup"
+    exit 1
+}
 
-# Install zsh dotfile.
-[ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.bkp"
-cp "$DOTFILES/zsh/zshrc" "$HOME/.zshrc"
+while getopts ':au:' distro; do
+  case "$distro" in
+    a) arch ;;
+    ?) usage ;;
+  esac
+done
 
