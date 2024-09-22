@@ -9,7 +9,7 @@ info "Installing system packages"
 yay -S --noconfirm --needed curl fzf unzip tmux zsh \
   streamlink protonvpn-cli-community clamav btop \
   appimagelauncher metadata-cleaner tor torbrowser-launcher \
-  easyeffects syncthing
+  easyeffects syncthing lsd
 
 
 # ----------------------------------------------------
@@ -21,7 +21,7 @@ systemctl --user enable syncthing.service
 # ----------------------------------------------------
 # Install Virtualbox
 # ----------------------------------------------------
-sudo pacman -Syu --needed --noconfirm virtualbox linux-virtualbox-host-module 
+sudo pacman -Syu --needed --noconfirm virtualbox linux-virtualbox-host-module
 sudo vboxreload
 sudo pamac build virtualbox-ext-oracle
 
@@ -47,4 +47,3 @@ sh -c "$(curl -sL https://nextdns.io/install)"
 # Zap Plugin Manager
 # ----------------------------------------------------
 zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
-
