@@ -29,7 +29,7 @@ info "Copying zsh config files"
 backup "$HOME/.zshrc"
 backup "$HOME/.zprofile"
 backup "$HOME/.functions.zsh"
-cp -R "$DOTFILES/zsh/{.functions,.zprofile,.zshrc} "$HOME/"
+cp -R "$DOTFILES/config/zsh/{.functions,.zprofile,.zshrc}" "$HOME/"
 
 
 # ----------------------------------------------------
