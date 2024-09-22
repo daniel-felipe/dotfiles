@@ -15,35 +15,41 @@ export reset=$(tput sgr0)
 # Functions
 # ----------------------------------------------------
 function error() {
-  echo "[${red}-${reset}] $1"
+    echo "[${red}-${reset}] $1"
 }
 
 function success() {
-  echo "[${green}-${reset}] $1"
+    echo "[${green}-${reset}] $1"
 }
 
 function info() {
-  echo "[${blue}+${reset}] $1"
+    echo "[${blue}+${reset}] $1"
 }
 
 function warning() {
-  echo "[${yellow}+${reset}] $1"
+    echo "[${yellow}+${reset}] $1"
 }
 
 function arch() {
-  info "Initalizing arch setup"
-  source "setup/arch/setup.sh"
+    info "Initalizing arch setup"
+    source "setup/arch/setup.sh"
 }
 
 function ubuntu() {
-  # TODO: Ubuntu setup
-  warning "Not implemented yet."
+    # TODO: Ubuntu setup
+    warning "Not implemented yet."
+}
+
+function dotfiles() {
+    info "Copying dotfiles"
+    source "setup/dotfiles.sh"
 }
 
 function usage() {
-    echo "Usage: $0 [-a] [-u]"
+    echo "Usage: $0 [-a] [-u] [-d]"
     echo "  -a        Initialize Arch based linux setup"
     echo "  -u        Initialize Ubuntu based linux setup"
+    echo "  -d        Copy dotfiles only"
     exit 1
 }
 
@@ -54,11 +60,11 @@ DOTFILES=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 [ "$#" -eq 0 ] && usage
 
-while getopts ':au' distro; do
-  case "$distro" in
-    a) arch ;;
-    u) ubuntu ;;
-    *) usage ;;
-  esac
+while getopts ':aud' distro; do
+    case "$distro" in
+        a) arch ;;
+        u) ubuntu ;;
+        d) dotfiles ;;
+        *) usage ;;
+    esac
 done
-
