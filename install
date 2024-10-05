@@ -30,6 +30,14 @@ function warning() {
     echo "[${yellow}+${reset}] $1"
 }
 
+function display_banner() {
+    printf "\n"
+    echo "  / _ \/ __ \/_  __/ __/  _/ /  / __/ __/"
+    echo " / // / /_/ / / / / _/_/ // /__/ _/_\ \_"
+    echo "/____/\____/ /_/ /_/ /___/____/___/___(_)"
+    printf "by daniel-felipe\n\n"
+}
+
 function arch() {
     info "Initalizing arch setup"
     source "setup/arch/setup.sh"
@@ -57,6 +65,7 @@ function usage() {
 # Entry Point
 # ----------------------------------------------------
 DOTFILES=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+display_banner
 
 [ "$#" -eq 0 ] && usage
 
