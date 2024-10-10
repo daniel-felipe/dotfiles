@@ -8,7 +8,13 @@ info "Installing developer packages"
 # ----------------------------------------------------
 yay -S --noconfirm --needed base-devel git lazygit neovim \
   python python-pip python-setuptools python-pipx vscodium-bin \
-  lazydocker php php-sqlite composer tableplus xdebug
+  lazydocker composer tableplus xdebug
+
+
+# ----------------------------------------------------
+# Install PHP & Laravel
+# ----------------------------------------------------
+/bin/bash -c "$(curl -fsSL https://php.new/install/linux)"
 
 
 # ----------------------------------------------------

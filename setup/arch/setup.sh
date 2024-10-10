@@ -24,5 +24,12 @@ source "$DOTFILES/setup/arch/sys.sh"
 # ----------------------------------------------------
 yay -Rsn $(yay -Qdtq) 2> /dev/null
 
+
+# ----------------------------------------------------
+# Set ZSH As Default Shell
+# ----------------------------------------------------
+chsh -s $(which zsh) $(whoami)
+
+
 success "Done!"
 
